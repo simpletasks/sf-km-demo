@@ -3,22 +3,27 @@ package hr.krunoslav.magazin.sfshop.services.jaxb;
 import javax.xml.bind.ValidationEvent;
 import javax.xml.bind.ValidationEventHandler;
 
-public class MyValidationEventHandler implements ValidationEventHandler{
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class MyValidationEventHandler implements ValidationEventHandler {
+
+	private static final Logger LOG = LogManager.getLogger(MyValidationEventHandler.class);
 
 	@Override
 	public boolean handleEvent(ValidationEvent event) {
-		System.out.println("\nEVENT");
-        System.out.println("SEVERITY:  " + event.getSeverity());
-        System.out.println("MESSAGE:  " + event.getMessage());
-        System.out.println("LINKED EXCEPTION:  " + event.getLinkedException());
-        System.out.println("LOCATOR");
-        System.out.println("    LINE NUMBER:  " + event.getLocator().getLineNumber());
-        System.out.println("    COLUMN NUMBER:  " + event.getLocator().getColumnNumber());
-        System.out.println("    OFFSET:  " + event.getLocator().getOffset());
-        System.out.println("    OBJECT:  " + event.getLocator().getObject());
-        System.out.println("    NODE:  " + event.getLocator().getNode());
-        System.out.println("    URL:  " + event.getLocator().getURL());
-        return false;
+		LOG.trace("\nEVENT");
+		LOG.trace("SEVERITY:  " + event.getSeverity());
+		LOG.trace("MESSAGE:  " + event.getMessage());
+		LOG.trace("LINKED EXCEPTION:  " + event.getLinkedException());
+		LOG.trace("LOCATOR");
+		LOG.trace("    LINE NUMBER:  " + event.getLocator().getLineNumber());
+		LOG.trace("    COLUMN NUMBER:  " + event.getLocator().getColumnNumber());
+		LOG.trace("    OFFSET:  " + event.getLocator().getOffset());
+		LOG.trace("    OBJECT:  " + event.getLocator().getObject());
+		LOG.trace("    NODE:  " + event.getLocator().getNode());
+		LOG.trace("    URL:  " + event.getLocator().getURL());
+		return false;
 	}
 
 }

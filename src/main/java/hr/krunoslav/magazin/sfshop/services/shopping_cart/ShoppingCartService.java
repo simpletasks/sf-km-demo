@@ -32,6 +32,8 @@ public class ShoppingCartService {
 	private WarenkorbkoepfeDao warenkorbkoepfeDao = null;
 	private WarenkorbdetailsDao warenkorbkoepfeItemDao = null;
 
+	private BigInteger lastPersistedWarenkorbkoepfeId = null;
+
 	public ShoppingCartService(EntityManagerFactory emf, ArtikelDao artikelDao, ObjekteDao objekteDao,
 			WarenkorbkoepfeDao warenkorbkoepfeDao, WarenkorbdetailsDao warenkorbkoepfeItemDao) {
 		super();
@@ -66,15 +68,20 @@ public class ShoppingCartService {
 
 		Warenkorbkoepfe warenkorbkoepfe = this.createWarenkorbkoepfe(object);
 
-		if (!this.createWarenknobedetails(items, warenkorbkoepfe)){
+		if (!this.createWarenknobedetails(items, warenkorbkoepfe)) {
 			return false;
 		}
 
 		this.syncronizeWithDatabase(entityManager, objekteDao);
 
-		LOG.info("Warenkorbkoepfe with id={} created.", warenkorbkoepfe.getId());
+		lastPersistedWarenkorbkoepfeId = warenkorbkoepfe.getId();
+		LOG.info("Warenkorbkoepfe with id={} created.", lastPersistedWarenkorbkoepfeId);
 		return true;
 
+	}
+
+	public BigInteger getLastPersistedWarenkorbkoepfeId() {
+		return lastPersistedWarenkorbkoepfeId;
 	}
 
 	private boolean createWarenknobedetails(Items items, Warenkorbkoepfe warenkorbkoepfe) {

@@ -20,6 +20,7 @@ import hr.krunoslav.magazin.sfshop.jpa.dao.impl.WarenkorbdetailsDaoImpl;
 import hr.krunoslav.magazin.sfshop.jpa.dao.impl.WarenkorbkoepfeDaoImpl;
 import hr.krunoslav.magazin.sfshop.jpa.entities.Warenkorbkoepfe;
 import hr.krunoslav.magazin.sfshop.services.file.FileNameValidator;
+import hr.krunoslav.magazin.sfshop.services.jaxb.SchemaSourceLocator;
 import hr.krunoslav.magazin.sfshop.services.jaxb.XmlTojavaService;
 import hr.krunoslav.magazin.sfshop.services.shopping_cart.ShoppingCartService;
 
@@ -29,8 +30,6 @@ public class ShoppingCartItemsImporter {
 	public static final BigInteger DEFAULT_OBJEKTE_ID = new BigInteger("1");
 	public static final String INFO_FOR_PROPER_PATH_TO_XML_FILE = "Path to xml file must be prefixed with '/' for "
 			+ "absolute path or without prefix for relative path from current directory!";
-	/** Name of xsd schema file packaged in jar archive */
-	public static final String XSD_FILENAME = "/input-data.xsd";
 
 	private static final Logger LOG = LogManager.getLogger(ShoppingCartItemsImporter.class);
 
@@ -51,10 +50,12 @@ public class ShoppingCartItemsImporter {
 	}
 
 	/**
-	 * For input xml data file create {@link Warenkorbkoepfe} in database. Xsd schema
-	 * file must be packaged in archive.
+	 * For input xml data file create {@link Warenkorbkoepfe} in database. Xsd
+	 * schema file must be packaged in archive.
 	 * 
-	 * @param fileName absolute path to file or relative path from current execution directory
+	 * @param fileName
+	 *            absolute path to file or relative path from current execution
+	 *            directory
 	 * @return true for success or false for every exception
 	 */
 	public boolean importFromXmlFile(String fileName) {
@@ -67,16 +68,17 @@ public class ShoppingCartItemsImporter {
 		}
 
 		// load xsd schema file
-		Source schemaSource = loadSchemaSource();
+		SchemaSourceLocator xsdLocator = new SchemaSourceLocator();
+		Source schemaSource = xsdLocator.loadSchemaSource();
 		if (schemaSource == null) {
 			LOG.info("Processing aborted");
 			return false;
 		}
 
-		// create java objects for XML tags 
-		Inventory invertory;
+		// create java objects for XML tags
+		Inventory inventory;
 		try {
-			invertory = XmlTojavaService.convertToJava(xmlFile, schemaSource);
+			inventory = XmlTojavaService.convertToJava(xmlFile, schemaSource);
 		} catch (SAXException e) {
 			LOG.error("Error using schema file: " + xmlFile.getName(), e);
 			return false;
@@ -85,7 +87,7 @@ public class ShoppingCartItemsImporter {
 		// create Warenkorbkoepfe for passed items
 		ShoppingCartService service = new ShoppingCartService(new EntityManagerFactory(), new ArtikelDaoImpl(),
 				new ObjekteDaoImpl(), new WarenkorbkoepfeDaoImpl(), new WarenkorbdetailsDaoImpl());
-		if (!service.createShoppingCart(invertory.getItems())) {
+		if (!service.createShoppingCart(inventory.getItems())) {
 			LOG.info("Processing aborted");
 			return false;
 		}
@@ -93,14 +95,4 @@ public class ShoppingCartItemsImporter {
 		return true;
 	}
 
-	private Source loadSchemaSource() {
-		InputStream is = getClass().getResourceAsStream(XSD_FILENAME);
-		if (is == null) {
-			LOG.error("Xsd schema file not found in archive. FileName: {}", XSD_FILENAME);
-			return null;
-		}
-		InputStreamReader isr = new InputStreamReader(is);
-		Source schemaSource = new StreamSource(isr);
-		return schemaSource;
-	}
 }

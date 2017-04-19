@@ -12,7 +12,7 @@ import hr.krunoslav.magazin.sfshop.jpa.entities.Objekte;
 public class ObjekteDaoImpl extends JpaDaoAbstractImpl<Objekte> implements ObjekteDao {
 
 	private static final Logger LOG = LogManager.getLogger(ObjekteDaoImpl.class);
-	
+
 	@Override
 	public <E> E findById(BigInteger id) {
 		E object = null;

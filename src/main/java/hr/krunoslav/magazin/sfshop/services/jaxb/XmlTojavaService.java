@@ -20,8 +20,9 @@ public class XmlTojavaService {
 	private static final Logger LOG = LogManager.getLogger(XmlTojavaService.class);
 
 	/**
-	 * Convert xml data file into objects. File structure validated against xsd schema
-	 *  
+	 * Convert xml data file into objects. File structure validated against xsd
+	 * schema
+	 * 
 	 * @param xmlFile
 	 * @param xsdFile
 	 * @return
@@ -35,7 +36,8 @@ public class XmlTojavaService {
 	}
 
 	/**
-	 * Convert xml data file into objects. File structure validated against xsd schema
+	 * Convert xml data file into objects. File structure validated against xsd
+	 * schema
 	 * 
 	 * @param xmlFile
 	 * @param xsdSource

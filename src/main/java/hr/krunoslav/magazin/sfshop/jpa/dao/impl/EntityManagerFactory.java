@@ -9,7 +9,6 @@ public class EntityManagerFactory {
 
 	private EntityManager entitymanager;
 
-	// TODO promjeniti u create i osigurati da se stari entitymanager zatvori - close !
 	public EntityManager getEntitymanager() {
 		if (entitymanager == null) {
 			synchronized (this) {

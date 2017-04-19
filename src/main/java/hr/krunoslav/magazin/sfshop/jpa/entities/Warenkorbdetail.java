@@ -11,7 +11,11 @@ import java.math.BigInteger;
  */
 @Entity
 @Table(name="warenkorbdetails")
-@NamedQuery(name="Warenkorbdetail.findAll", query="SELECT w FROM Warenkorbdetail w")
+@NamedQueries({
+	@NamedQuery(name="Warenkorbdetail.findAll", query="SELECT w FROM Warenkorbdetail w"),
+	@NamedQuery(name="Warenkorbdetail.findByWarenkorbkoepfeId", query="select d from Warenkorbdetail d where d.warenkorbkoepfe.id = :id")
+})
+
 public class Warenkorbdetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 

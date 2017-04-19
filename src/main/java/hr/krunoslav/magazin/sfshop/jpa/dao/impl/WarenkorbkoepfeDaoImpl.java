@@ -1,7 +1,5 @@
 package hr.krunoslav.magazin.sfshop.jpa.dao.impl;
 
-import javax.persistence.EntityManager;
-
 import hr.krunoslav.magazin.sfshop.jpa.dao.JpaDaoAbstractImpl;
 import hr.krunoslav.magazin.sfshop.jpa.dao.WarenkorbkoepfeDao;
 import hr.krunoslav.magazin.sfshop.jpa.entities.Objekte;

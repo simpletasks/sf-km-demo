@@ -20,9 +20,9 @@
 	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Zugriffe</class>
 	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Zugriffsbegrenzung</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fs_shop?useSSL=false"/>
-			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.password" value="renata"/>
+			<property name="javax.persistence.jdbc.url" value="${jdbc.url}"/>
+			<property name="javax.persistence.jdbc.user" value="${mysql.db.user}"/>
+			<property name="javax.persistence.jdbc.password" value="${mysql.db.password}"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 		</properties>
 	</persistence-unit>

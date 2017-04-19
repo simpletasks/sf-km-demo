@@ -12,8 +12,8 @@ import org.junit.Before;
  * entity manager and secures cleaning of database after test is done. In tests,
  * recommendation is to use methods
  * {@link EntityBuilder#persistInTransaction(java.io.Serializable)} and
- * {@link EntityBuilder#removeInTransaction(java.io.Serializable)}
- * for automated removal of persisted entities during test.
+ * {@link EntityBuilder#removeInTransaction(java.io.Serializable)} for automated
+ * removal of persisted entities during test.
  * 
  * @author Krunoslav Magazin
  *

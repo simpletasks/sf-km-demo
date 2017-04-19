@@ -101,6 +101,9 @@ public class Warenkorbkoepfe implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "Objekt_ID")
 	private Objekte objekte;
+	
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="warenkorbkoepfe")
+	private List<Warenkorbdetail> warenkorbdetailList;
 
 	public Warenkorbkoepfe() {
 	}
@@ -308,6 +311,14 @@ public class Warenkorbkoepfe implements Serializable {
 
 	public void setObjekte(Objekte objekte) {
 		this.objekte = objekte;
+	}
+
+	public List<Warenkorbdetail> getWarenkorbdetailList() {
+		return warenkorbdetailList;
+	}
+
+	public void setWarenkorbdetailList(List<Warenkorbdetail> warenkorbdetailList) {
+		this.warenkorbdetailList = warenkorbdetailList;
 	}
 
 }
