@@ -37,17 +37,14 @@ public class Warenkorbdetail implements Serializable {
 	@Column(name="PREISEXKLMWST")
 	private double preisexklmwst;
 
-	//bi-directional many-to-one association to Artikellager
 	@ManyToOne
 	@JoinColumn(name="ArtikelLager_ID")
 	private Artikellager artikellager;
 
-	//bi-directional many-to-one association to Artikel
 	@ManyToOne
 	@JoinColumn(name="Artikel_ID")
 	private Artikel artikel;
 
-	//bi-directional many-to-one association to Warenkorbkoepfe
 	@ManyToOne
 	@JoinColumn(name="WarenkorbKopf_ID")
 	private Warenkorbkoepfe warenkorbkoepfe;

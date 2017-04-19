@@ -85,13 +85,6 @@ public class User implements Serializable {
 	@Column(name="ZEILE2")
 	private String zeile2;
 
-	//bi-directional many-to-one association to Zugriffe
-	@OneToMany(mappedBy="user")
-	private List<Zugriffe> zugriffes;
-
-	//bi-directional many-to-one association to Zugriffsbegrenzung
-	@OneToMany(mappedBy="user")
-	private List<Zugriffsbegrenzung> zugriffsbegrenzungs;
 
 	public User() {
 	}
@@ -271,49 +264,4 @@ public class User implements Serializable {
 	public void setZeile2(String zeile2) {
 		this.zeile2 = zeile2;
 	}
-
-	public List<Zugriffe> getZugriffes() {
-		return this.zugriffes;
-	}
-
-	public void setZugriffes(List<Zugriffe> zugriffes) {
-		this.zugriffes = zugriffes;
-	}
-
-	public Zugriffe addZugriffe(Zugriffe zugriffe) {
-		getZugriffes().add(zugriffe);
-		zugriffe.setUser(this);
-
-		return zugriffe;
-	}
-
-	public Zugriffe removeZugriffe(Zugriffe zugriffe) {
-		getZugriffes().remove(zugriffe);
-		zugriffe.setUser(null);
-
-		return zugriffe;
-	}
-
-	public List<Zugriffsbegrenzung> getZugriffsbegrenzungs() {
-		return this.zugriffsbegrenzungs;
-	}
-
-	public void setZugriffsbegrenzungs(List<Zugriffsbegrenzung> zugriffsbegrenzungs) {
-		this.zugriffsbegrenzungs = zugriffsbegrenzungs;
-	}
-
-	public Zugriffsbegrenzung addZugriffsbegrenzung(Zugriffsbegrenzung zugriffsbegrenzung) {
-		getZugriffsbegrenzungs().add(zugriffsbegrenzung);
-		zugriffsbegrenzung.setUser(this);
-
-		return zugriffsbegrenzung;
-	}
-
-	public Zugriffsbegrenzung removeZugriffsbegrenzung(Zugriffsbegrenzung zugriffsbegrenzung) {
-		getZugriffsbegrenzungs().remove(zugriffsbegrenzung);
-		zugriffsbegrenzung.setUser(null);
-
-		return zugriffsbegrenzung;
-	}
-
 }

@@ -28,17 +28,14 @@ public class Artikelobjektzuweisungen implements Serializable {
 	@Column(name="VERRART")
 	private byte verrart;
 
-	//bi-directional many-to-one association to Artikelsetdetail
 	@ManyToOne
 	@JoinColumn(name="ArtikelSetDetail_ID")
 	private Artikelsetdetail artikelsetdetail;
 
-	//bi-directional many-to-one association to Artikel
 	@ManyToOne
 	@JoinColumn(name="Artikel_ID")
 	private Artikel artikel;
 
-	//bi-directional many-to-one association to Objekte
 	@ManyToOne
 	@JoinColumn(name="Objekt_ID")
 	private Objekte objekte;

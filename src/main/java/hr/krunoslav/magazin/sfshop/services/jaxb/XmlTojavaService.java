@@ -60,7 +60,7 @@ public class XmlTojavaService {
 
 			LOG.trace(inventory);
 		} catch (Exception e) {
-			LOG.error("Xml can not be converted to java.", e);
+			LOG.error("Xml can not be converted to java. {}", e.getCause().getMessage());
 		}
 		return inventory;
 	}

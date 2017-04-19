@@ -39,10 +39,7 @@ public class Artikellager implements Serializable {
 	@JoinColumn(name="Artikel_ID")
 	private Artikel artikel;
 
-	//bi-directional many-to-one association to Warenkorbdetail
-	@OneToMany(mappedBy="artikellager")
-	private List<Warenkorbdetail> warenkorbdetails;
-
+	
 	public Artikellager() {
 	}
 
@@ -101,27 +98,4 @@ public class Artikellager implements Serializable {
 	public void setArtikel(Artikel artikel) {
 		this.artikel = artikel;
 	}
-
-	public List<Warenkorbdetail> getWarenkorbdetails() {
-		return this.warenkorbdetails;
-	}
-
-	public void setWarenkorbdetails(List<Warenkorbdetail> warenkorbdetails) {
-		this.warenkorbdetails = warenkorbdetails;
-	}
-
-	public Warenkorbdetail addWarenkorbdetail(Warenkorbdetail warenkorbdetail) {
-		getWarenkorbdetails().add(warenkorbdetail);
-		warenkorbdetail.setArtikellager(this);
-
-		return warenkorbdetail;
-	}
-
-	public Warenkorbdetail removeWarenkorbdetail(Warenkorbdetail warenkorbdetail) {
-		getWarenkorbdetails().remove(warenkorbdetail);
-		warenkorbdetail.setArtikellager(null);
-
-		return warenkorbdetail;
-	}
-
 }

@@ -31,7 +31,6 @@ public class Artikeldokumente implements Serializable {
 	@Column(name="BESCHREIBUNG")
 	private String beschreibung;
 
-	//bi-directional many-to-one association to Artikel
 	@ManyToOne
 	@JoinColumn(name="Artikel_ID")
 	private Artikel artikel;

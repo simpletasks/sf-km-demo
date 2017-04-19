@@ -73,6 +73,7 @@ public class ShoppingCartItemsImporter {
 			return false;
 		}
 
+		// create java objects for XML tags 
 		Inventory invertory;
 		try {
 			invertory = XmlTojavaService.convertToJava(xmlFile, schemaSource);

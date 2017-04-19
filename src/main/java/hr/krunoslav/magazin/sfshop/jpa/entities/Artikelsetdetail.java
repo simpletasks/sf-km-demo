@@ -29,16 +29,10 @@ public class Artikelsetdetail implements Serializable {
 	@Column(name="VERRART")
 	private byte verrart;
 
-	//bi-directional many-to-one association to Artikelobjektzuweisungen
-	@OneToMany(mappedBy="artikelsetdetail")
-	private List<Artikelobjektzuweisungen> artikelobjektzuweisungens;
-
-	//bi-directional many-to-one association to Artikelset
 	@ManyToOne
 	@JoinColumn(name="ArtikelSet_ID")
 	private Artikelset artikelset;
 
-	//bi-directional many-to-one association to Artikel
 	@ManyToOne
 	@JoinColumn(name="Artikel_ID")
 	private Artikel artikel;
@@ -76,28 +70,6 @@ public class Artikelsetdetail implements Serializable {
 
 	public void setVerrart(byte verrart) {
 		this.verrart = verrart;
-	}
-
-	public List<Artikelobjektzuweisungen> getArtikelobjektzuweisungens() {
-		return this.artikelobjektzuweisungens;
-	}
-
-	public void setArtikelobjektzuweisungens(List<Artikelobjektzuweisungen> artikelobjektzuweisungens) {
-		this.artikelobjektzuweisungens = artikelobjektzuweisungens;
-	}
-
-	public Artikelobjektzuweisungen addArtikelobjektzuweisungen(Artikelobjektzuweisungen artikelobjektzuweisungen) {
-		getArtikelobjektzuweisungens().add(artikelobjektzuweisungen);
-		artikelobjektzuweisungen.setArtikelsetdetail(this);
-
-		return artikelobjektzuweisungen;
-	}
-
-	public Artikelobjektzuweisungen removeArtikelobjektzuweisungen(Artikelobjektzuweisungen artikelobjektzuweisungen) {
-		getArtikelobjektzuweisungens().remove(artikelobjektzuweisungen);
-		artikelobjektzuweisungen.setArtikelsetdetail(null);
-
-		return artikelobjektzuweisungen;
 	}
 
 	public Artikelset getArtikelset() {

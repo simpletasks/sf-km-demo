@@ -68,22 +68,10 @@ public class Objekte implements Serializable {
 	@Column(name="RL")
 	private BigInteger rl;
 
-	//bi-directional many-to-one association to Artikelobjektzuweisungen
-	@OneToMany(mappedBy="objekte")
-	private List<Artikelobjektzuweisungen> artikelobjektzuweisungens;
-
-	//bi-directional many-to-one association to Artikelset
 	@ManyToOne
 	@JoinColumn(name="ArtikelSet_ID")
 	private Artikelset artikelset;
 
-	//bi-directional many-to-one association to Warenkorbkoepfe
-	@OneToMany(mappedBy="objekte")
-	private List<Warenkorbkoepfe> warenkorbkoepfes;
-
-	//bi-directional many-to-one association to Zugriffsbegrenzung
-	@OneToMany(mappedBy="objekte")
-	private List<Zugriffsbegrenzung> zugriffsbegrenzungs;
 
 	public Objekte() {
 	}
@@ -224,27 +212,6 @@ public class Objekte implements Serializable {
 		this.rl = rl;
 	}
 
-	public List<Artikelobjektzuweisungen> getArtikelobjektzuweisungens() {
-		return this.artikelobjektzuweisungens;
-	}
-
-	public void setArtikelobjektzuweisungens(List<Artikelobjektzuweisungen> artikelobjektzuweisungens) {
-		this.artikelobjektzuweisungens = artikelobjektzuweisungens;
-	}
-
-	public Artikelobjektzuweisungen addArtikelobjektzuweisungen(Artikelobjektzuweisungen artikelobjektzuweisungen) {
-		getArtikelobjektzuweisungens().add(artikelobjektzuweisungen);
-		artikelobjektzuweisungen.setObjekte(this);
-
-		return artikelobjektzuweisungen;
-	}
-
-	public Artikelobjektzuweisungen removeArtikelobjektzuweisungen(Artikelobjektzuweisungen artikelobjektzuweisungen) {
-		getArtikelobjektzuweisungens().remove(artikelobjektzuweisungen);
-		artikelobjektzuweisungen.setObjekte(null);
-
-		return artikelobjektzuweisungen;
-	}
 
 	public Artikelset getArtikelset() {
 		return this.artikelset;
@@ -253,49 +220,4 @@ public class Objekte implements Serializable {
 	public void setArtikelset(Artikelset artikelset) {
 		this.artikelset = artikelset;
 	}
-
-	public List<Warenkorbkoepfe> getWarenkorbkoepfes() {
-		return this.warenkorbkoepfes;
-	}
-
-	public void setWarenkorbkoepfes(List<Warenkorbkoepfe> warenkorbkoepfes) {
-		this.warenkorbkoepfes = warenkorbkoepfes;
-	}
-
-	public Warenkorbkoepfe addWarenkorbkoepfe(Warenkorbkoepfe warenkorbkoepfe) {
-		getWarenkorbkoepfes().add(warenkorbkoepfe);
-		warenkorbkoepfe.setObjekte(this);
-
-		return warenkorbkoepfe;
-	}
-
-	public Warenkorbkoepfe removeWarenkorbkoepfe(Warenkorbkoepfe warenkorbkoepfe) {
-		getWarenkorbkoepfes().remove(warenkorbkoepfe);
-		warenkorbkoepfe.setObjekte(null);
-
-		return warenkorbkoepfe;
-	}
-
-	public List<Zugriffsbegrenzung> getZugriffsbegrenzungs() {
-		return this.zugriffsbegrenzungs;
-	}
-
-	public void setZugriffsbegrenzungs(List<Zugriffsbegrenzung> zugriffsbegrenzungs) {
-		this.zugriffsbegrenzungs = zugriffsbegrenzungs;
-	}
-
-	public Zugriffsbegrenzung addZugriffsbegrenzung(Zugriffsbegrenzung zugriffsbegrenzung) {
-		getZugriffsbegrenzungs().add(zugriffsbegrenzung);
-		zugriffsbegrenzung.setObjekte(this);
-
-		return zugriffsbegrenzung;
-	}
-
-	public Zugriffsbegrenzung removeZugriffsbegrenzung(Zugriffsbegrenzung zugriffsbegrenzung) {
-		getZugriffsbegrenzungs().remove(zugriffsbegrenzung);
-		zugriffsbegrenzung.setObjekte(null);
-
-		return zugriffsbegrenzung;
-	}
-
 }

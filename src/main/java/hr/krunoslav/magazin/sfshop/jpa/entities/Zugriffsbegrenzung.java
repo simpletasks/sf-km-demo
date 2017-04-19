@@ -18,12 +18,10 @@ public class Zugriffsbegrenzung implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 
-	//bi-directional many-to-one association to Objekte
 	@ManyToOne
 	@JoinColumn(name="objekt_id")
 	private Objekte objekte;
 
-	//bi-directional many-to-one association to User
 	@ManyToOne
 	private User user;
 

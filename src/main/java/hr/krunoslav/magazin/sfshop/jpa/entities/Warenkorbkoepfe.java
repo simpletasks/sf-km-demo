@@ -97,11 +97,7 @@ public class Warenkorbkoepfe implements Serializable {
 	@Column(name = "USERROLE")
 	private byte userrole;
 
-	// bi-directional many-to-one association to Warenkorbdetail
-	@OneToMany(mappedBy = "warenkorbkoepfe")
-	private List<Warenkorbdetail> warenkorbdetails;
 
-	// bi-directional many-to-one association to Objekte
 	@ManyToOne
 	@JoinColumn(name = "Objekt_ID")
 	private Objekte objekte;
@@ -305,27 +301,6 @@ public class Warenkorbkoepfe implements Serializable {
 		this.userrole = userrole;
 	}
 
-	public List<Warenkorbdetail> getWarenkorbdetails() {
-		return this.warenkorbdetails;
-	}
-
-	public void setWarenkorbdetails(List<Warenkorbdetail> warenkorbdetails) {
-		this.warenkorbdetails = warenkorbdetails;
-	}
-
-	public Warenkorbdetail addWarenkorbdetail(Warenkorbdetail warenkorbdetail) {
-		getWarenkorbdetails().add(warenkorbdetail);
-		warenkorbdetail.setWarenkorbkoepfe(this);
-
-		return warenkorbdetail;
-	}
-
-	public Warenkorbdetail removeWarenkorbdetail(Warenkorbdetail warenkorbdetail) {
-		getWarenkorbdetails().remove(warenkorbdetail);
-		warenkorbdetail.setWarenkorbkoepfe(null);
-
-		return warenkorbdetail;
-	}
 
 	public Objekte getObjekte() {
 		return this.objekte;

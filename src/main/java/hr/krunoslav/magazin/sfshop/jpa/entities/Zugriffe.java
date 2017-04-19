@@ -27,7 +27,6 @@ public class Zugriffe implements Serializable {
 	@Column(name="LOGOUT")
 	private Date logout;
 
-	//bi-directional many-to-one association to User
 	@ManyToOne
 	private User user;
 

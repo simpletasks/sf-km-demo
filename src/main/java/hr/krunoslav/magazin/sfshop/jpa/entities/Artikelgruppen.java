@@ -35,9 +35,6 @@ public class Artikelgruppen implements Serializable {
 	@Column(name="PARENTID")
 	private BigInteger parentid;
 
-	//bi-directional many-to-one association to Artikel
-	@OneToMany(mappedBy="artikelgruppen")
-	private List<Artikel> artikels;
 
 	public Artikelgruppen() {
 	}
@@ -89,27 +86,4 @@ public class Artikelgruppen implements Serializable {
 	public void setParentid(BigInteger parentid) {
 		this.parentid = parentid;
 	}
-
-	public List<Artikel> getArtikels() {
-		return this.artikels;
-	}
-
-	public void setArtikels(List<Artikel> artikels) {
-		this.artikels = artikels;
-	}
-
-	public Artikel addArtikel(Artikel artikel) {
-		getArtikels().add(artikel);
-		artikel.setArtikelgruppen(this);
-
-		return artikel;
-	}
-
-	public Artikel removeArtikel(Artikel artikel) {
-		getArtikels().remove(artikel);
-		artikel.setArtikelgruppen(null);
-
-		return artikel;
-	}
-
 }

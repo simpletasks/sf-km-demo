@@ -54,30 +54,10 @@ public class Artikel implements Serializable {
 	@Column(name="VERPACKUNGSEINHEIT")
 	private String verpackungseinheit;
 
-	//bi-directional many-to-one association to Artikelgruppen
 	@ManyToOne
 	@JoinColumn(name="ArtikelGruppe_ID")
 	private Artikelgruppen artikelgruppen;
 
-	//bi-directional many-to-one association to Artikeldokumente
-	@OneToMany(mappedBy="artikel")
-	private List<Artikeldokumente> artikeldokumentes;
-
-	//bi-directional many-to-one association to Artikellager
-	@OneToMany(mappedBy="artikel")
-	private List<Artikellager> artikellagers;
-
-	//bi-directional many-to-one association to Artikelobjektzuweisungen
-	@OneToMany(mappedBy="artikel")
-	private List<Artikelobjektzuweisungen> artikelobjektzuweisungens;
-
-	//bi-directional many-to-one association to Artikelsetdetail
-	@OneToMany(mappedBy="artikel")
-	private List<Artikelsetdetail> artikelsetdetails;
-
-	//bi-directional many-to-one association to Warenkorbdetail
-	@OneToMany(mappedBy="artikel")
-	private List<Warenkorbdetail> warenkorbdetails;
 
 	public Artikel() {
 	}
@@ -169,115 +149,4 @@ public class Artikel implements Serializable {
 	public void setArtikelgruppen(Artikelgruppen artikelgruppen) {
 		this.artikelgruppen = artikelgruppen;
 	}
-
-	public List<Artikeldokumente> getArtikeldokumentes() {
-		return this.artikeldokumentes;
-	}
-
-	public void setArtikeldokumentes(List<Artikeldokumente> artikeldokumentes) {
-		this.artikeldokumentes = artikeldokumentes;
-	}
-
-	public Artikeldokumente addArtikeldokumente(Artikeldokumente artikeldokumente) {
-		getArtikeldokumentes().add(artikeldokumente);
-		artikeldokumente.setArtikel(this);
-
-		return artikeldokumente;
-	}
-
-	public Artikeldokumente removeArtikeldokumente(Artikeldokumente artikeldokumente) {
-		getArtikeldokumentes().remove(artikeldokumente);
-		artikeldokumente.setArtikel(null);
-
-		return artikeldokumente;
-	}
-
-	public List<Artikellager> getArtikellagers() {
-		return this.artikellagers;
-	}
-
-	public void setArtikellagers(List<Artikellager> artikellagers) {
-		this.artikellagers = artikellagers;
-	}
-
-	public Artikellager addArtikellager(Artikellager artikellager) {
-		getArtikellagers().add(artikellager);
-		artikellager.setArtikel(this);
-
-		return artikellager;
-	}
-
-	public Artikellager removeArtikellager(Artikellager artikellager) {
-		getArtikellagers().remove(artikellager);
-		artikellager.setArtikel(null);
-
-		return artikellager;
-	}
-
-	public List<Artikelobjektzuweisungen> getArtikelobjektzuweisungens() {
-		return this.artikelobjektzuweisungens;
-	}
-
-	public void setArtikelobjektzuweisungens(List<Artikelobjektzuweisungen> artikelobjektzuweisungens) {
-		this.artikelobjektzuweisungens = artikelobjektzuweisungens;
-	}
-
-	public Artikelobjektzuweisungen addArtikelobjektzuweisungen(Artikelobjektzuweisungen artikelobjektzuweisungen) {
-		getArtikelobjektzuweisungens().add(artikelobjektzuweisungen);
-		artikelobjektzuweisungen.setArtikel(this);
-
-		return artikelobjektzuweisungen;
-	}
-
-	public Artikelobjektzuweisungen removeArtikelobjektzuweisungen(Artikelobjektzuweisungen artikelobjektzuweisungen) {
-		getArtikelobjektzuweisungens().remove(artikelobjektzuweisungen);
-		artikelobjektzuweisungen.setArtikel(null);
-
-		return artikelobjektzuweisungen;
-	}
-
-	public List<Artikelsetdetail> getArtikelsetdetails() {
-		return this.artikelsetdetails;
-	}
-
-	public void setArtikelsetdetails(List<Artikelsetdetail> artikelsetdetails) {
-		this.artikelsetdetails = artikelsetdetails;
-	}
-
-	public Artikelsetdetail addArtikelsetdetail(Artikelsetdetail artikelsetdetail) {
-		getArtikelsetdetails().add(artikelsetdetail);
-		artikelsetdetail.setArtikel(this);
-
-		return artikelsetdetail;
-	}
-
-	public Artikelsetdetail removeArtikelsetdetail(Artikelsetdetail artikelsetdetail) {
-		getArtikelsetdetails().remove(artikelsetdetail);
-		artikelsetdetail.setArtikel(null);
-
-		return artikelsetdetail;
-	}
-
-	public List<Warenkorbdetail> getWarenkorbdetails() {
-		return this.warenkorbdetails;
-	}
-
-	public void setWarenkorbdetails(List<Warenkorbdetail> warenkorbdetails) {
-		this.warenkorbdetails = warenkorbdetails;
-	}
-
-	public Warenkorbdetail addWarenkorbdetail(Warenkorbdetail warenkorbdetail) {
-		getWarenkorbdetails().add(warenkorbdetail);
-		warenkorbdetail.setArtikel(this);
-
-		return warenkorbdetail;
-	}
-
-	public Warenkorbdetail removeWarenkorbdetail(Warenkorbdetail warenkorbdetail) {
-		getWarenkorbdetails().remove(warenkorbdetail);
-		warenkorbdetail.setArtikel(null);
-
-		return warenkorbdetail;
-	}
-
 }
