@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: hr.krunoslav.magazin.sfshop.unit.services.jaxb.XmlTojavaServiceTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.093 sec <<< FAILURE! - in hr.krunoslav.magazin.sfshop.unit.services.jaxb.XmlTojavaServiceTest
-testHappyConvertToJava(hr.krunoslav.magazin.sfshop.unit.services.jaxb.XmlTojavaServiceTest)  Time elapsed: 0.045 sec  <<< ERROR!
-java.lang.RuntimeException: eee
-	at hr.krunoslav.magazin.sfshop.unit.services.jaxb.XmlTojavaServiceTest.testHappyConvertToJava(XmlTojavaServiceTest.java:73)
-
