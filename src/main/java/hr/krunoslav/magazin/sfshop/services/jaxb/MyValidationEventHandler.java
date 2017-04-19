@@ -1,4 +1,4 @@
-package hr.krunoslav.magazin.sfshop.unit.services.jaxb;
+package hr.krunoslav.magazin.sfshop.services.jaxb;
 
 import javax.xml.bind.ValidationEvent;
 import javax.xml.bind.ValidationEventHandler;
