@@ -1,0 +1,93 @@
+
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="com:tecit:inventory:02:02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="inventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="template">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="field" maxOccurs="unbounded" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Template-Details can be ignored while importing data !!!</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:byte" name="idx" use="optional"/>
+                      <xs:attribute type="xs:string" name="name" use="optional"/>
+                      <xs:attribute type="xs:string" name="descr" use="optional"/>
+                      <xs:attribute type="xs:string" name="type" use="optional"/>
+                      <xs:attribute type="xs:string" name="required" use="optional"/>
+                      <xs:attribute type="xs:string" name="access" use="optional"/>
+                      <xs:attribute type="xs:string" name="content" use="optional"/>
+                      <xs:attribute type="xs:string" name="default-value" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="items">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>list of items to be imported into shop basket  ignore  ignore  ignore</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:short" name="value0" minOccurs="1"/>
+                    <xs:element name="value2" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>Article-Number 2, Gilet schwarz Herren  S (Gr. 48)  Article-Number 2, Stahlschwamm 40gr.  Article-Number 2, HD 6/15C Plus</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:byte">
+                            <xs:attribute type="xs:string" name="min" use="optional"/>
+                            <xs:attribute type="xs:string" name="max" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:byte" name="value5">
+                      <xs:annotation>
+                        <xs:documentation>Quantity   Quantity   Quantity</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:dateTime" name="value6">
+                      <xs:annotation>
+                        <xs:documentation>ignore  ignore  ignore</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:dateTime" name="value7">
+                      <xs:annotation>
+                        <xs:documentation>ignore  ignore  ignore</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="value8">
+                      <xs:annotation>
+                        <xs:documentation>ignore  ignore  ignore</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:byte" name="value9">
+                      <xs:annotation>
+                        <xs:documentation>ignore  ignore  ignore</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:byte" name="uid" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:dateTime" name="timestamp"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+

@@ -1,0 +1,8 @@
+hr/krunoslav/magazin/sfshop/unit/services/jaxb/MyValidationEventHandler.class
+hr/krunoslav/magazin/sfshop/unit/services/jaxb/MyErrorHandler.class
+hr/krunoslav/magazin/sfshop/unit/dao/core/TestJpaAbstract.class
+hr/krunoslav/magazin/sfshop/unit/dao/ArtikelDaoTest.class
+hr/krunoslav/magazin/sfshop/unit/dao/WarenkorbdetailDaoTest.class
+hr/krunoslav/magazin/sfshop/unit/dao/core/EntityBuilder.class
+hr/krunoslav/magazin/sfshop/unit/dao/WarenkorbkoepfeDaoTest.class
+hr/krunoslav/magazin/sfshop/unit/services/jaxb/XmlTojavaServiceTest.class

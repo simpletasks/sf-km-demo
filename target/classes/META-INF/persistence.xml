@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="demo-project" transaction-type="RESOURCE_LOCAL">
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikel</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikeldokumente</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikelgruppen</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikellager</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikelobjektzuweisungen</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikelsetdetail</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Artikelset</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Locking</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.LockingPK</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Mitarbeiter</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Objekte</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Uebersetzungen</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.User</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Warenkorbdetail</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Warenkorbkoepfe</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Zugriffe</class>
+	<class>hr.krunoslav.magazin.sfshop.jpa.entities.Zugriffsbegrenzung</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fs_shop?useSSL=false"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="renata"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
