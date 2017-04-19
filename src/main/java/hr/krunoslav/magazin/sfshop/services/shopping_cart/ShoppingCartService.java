@@ -117,6 +117,10 @@ public class ShoppingCartService {
 		Warenkorbdetail warenkorbdetail = warenkorbkoepfeItemDao.createWarenkorbdetail(warenkorbkoepfe);
 		warenkorbdetail.setArtikel(artikel);
 		warenkorbdetail.setMenge(tm.getValue2().getValue());
+		warenkorbdetail.setArtikelnummer1(artikel.getNummer1());
+		warenkorbdetail.setArtikelnummer2(artikel.getNummer2());
+		warenkorbdetail.setBezeichnung1(artikel.getBezeichnung1());
+		warenkorbdetail.setBezeichnung2(artikel.getBezeichnung2());
 		warenkorbkoepfeItemDao.persist(warenkorbdetail);
 	}
 
