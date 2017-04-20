@@ -1,8 +1,10 @@
  Developed on  Ubuntu 16 LTS and build with maven 3.3.9
+ Database is Mysql 5.7
  
  == Project build ==
 
-FIRST: Change persistence.xml properties in pom.xml for current environment !
+FIRST: import data into database
+Change persistence.xml properties in pom.xml for current environment !
 In log4j2.xml set preferred log level.
 Single log4j2.xml is both, for test stages and for deployed application.
 
